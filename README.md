@@ -84,8 +84,7 @@ python publisher.py     # Terminal 2- Start Publisher
 The subscriber will receive messages published by the publisher or the gesture controller.
 
 ### ESP32 Integration
-This project includes ESP32 support for controlling IoT devices. You can simulate the ESP32 using Wokwi:
-**Wokwi Simulation Link:** [](https://wokwi.com/projects/451864629933455361) 
+This project includes ESP32 support for controlling IoT devices. You can simulate the ESP32 using **Wokwi Simulation Link:** [https://wokwi.com/projects/451864629933455361](https://wokwi.com/projects/451864629933455361) 
 
 Steps: 
 1. Open the Wokwi project link above (or simulate your own)
