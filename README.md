@@ -2,7 +2,7 @@
 ## Working Agenda: 
 - SMART IoT - Hand Gesture Controlled IoT Simulation using MediaPipe and MQTT by Buly. 
 
-A real-time hand gesture recognition system that controls IoT devices using computer vision and MQTT protocol. This project uses MediaPipe for hand tracking and allows you to control lights, garage doors, and other IoT devices with simple hand gestures.
+A real-time hand gesture recognition system that controls IoT devices using computer vision and MQTT protocol. This project uses MediaPipe for hand tracking and allows you to control lights, garage doors, and other IoT devices with simple gestures.
 
 
 ## Features & Architecture 
@@ -14,18 +14,18 @@ A real-time hand gesture recognition system that controls IoT devices using comp
 - **IoT Integration**: MQTT protocol for seamless communication with IoT devices (commands published to MQTT broker) 
 - **Device Control**: ESP32 subscribes to topic and executes commands to control different devices with distinct hand gestures 
 
-Architecture: Camera Feed → MediaPipe → Hand Landmarks → Gesture Recognition → 
+**Architecture:** Camera Feed → MediaPipe → Hand Landmarks → Gesture Recognition → 
 MQTT Publish → Broker → ESP32 Subscribe → Device Control
 
 
 ## Supported Gestures & Commands
 
- ☝️ Index finger only -> `BL1` ( Turn Bedroom Light ON )
- ✊ All fingers down -> `BL0` ( Turn Bedroom Light OFF )
- ✌️ Index & Middle fingers -> `GL1` ( Turn Garage Light ON )
- 🤙 Pinky only -> `GL0` ( Turn Garage Light OFF )
- 🤟 Spiderman hand (Index, Pinky) -> `GD1` ( Open Garage Door )
- 👍 Thumb only -> `GD0` ( Close Garage Door )
+ ☝️ | Index finger only -> `BL1` ( Turn Bedroom Light ON ) <br>
+ ✊ | All fingers down -> `BL0` ( Turn Bedroom Light OFF ) <br>
+ ✌️ | Index & Middle fingers -> `GL1` ( Turn Garage Light ON ) <br>
+ 🤙 | Pinky only -> `GL0` ( Turn Garage Light OFF ) <br>
+ 🤟 | Spiderman hand (Index, Pinky) -> `GD1` ( Open Garage Door ) <br>
+ 👍 | Thumb only -> `GD0` ( Close Garage Door ) <br> 
 
 
 ## Prerequisites
@@ -58,11 +58,10 @@ pip install mediapipe
 pip install paho-mqtt
 ```
 
+This will download the `hand_landmarker.task` model file required for hand tracking: 
 ```bash
 python download_model.py    # Download MediaPipe Model
 ```
-This will download the `hand_landmarker.task` model file required for hand tracking.
-
 
 ## Usage
 
@@ -85,7 +84,7 @@ python publisher.py     # Terminal 2- Start Publisher
 The subscriber will receive messages published by the publisher or the gesture controller.
 
 ### ESP32 Integration
-This project includes ESP32 support for controlling real hardware. You can simulate the ESP32 using Wokwi:
+This project includes ESP32 support for controlling IoT devices. You can simulate the ESP32 using Wokwi:
 **Wokwi Simulation Link:** [](https://wokwi.com/projects/451864629933455361) 
 
 Steps: 
