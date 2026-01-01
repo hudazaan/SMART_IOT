@@ -10,7 +10,7 @@ A real-time hand gesture recognition system that controls IoT devices using comp
 - **Real-time Hand Gesture Recognition**: Uses MediaPipe hand landmarker for accurate hand tracking from webcam feed (refer to: https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker)
 - **Gesture Recognition**: Custom algorithm analyzes finger positions relative to palm
 - **Command Generation**: Specific finger configurations map to device commands
-- **ESP32 Simulation**: Compatible with Wokwi ESP32 simulator
+- **Simulation**: Compatible with Wokwi ESP32 simulator
 - **IoT Integration**: MQTT protocol for seamless communication with IoT devices (commands published to MQTT broker) 
 - **Device Control**: ESP32 subscribes to topic and executes commands to control different devices with distinct hand gestures 
 
@@ -23,7 +23,7 @@ MQTT Publish → Broker → ESP32 Subscribe → Device Control
  ☝️ | Index finger only -> `BL1` ( Turn Bedroom Light ON ) <br>
  ✊ | All fingers down -> `BL0` ( Turn Bedroom Light OFF ) <br>
  ✌️ | Index & Middle fingers -> `GL1` ( Turn Garage Light ON ) <br>
- 🤙 | Pinky only -> `GL0` ( Turn Garage Light OFF ) <br>
+ 🤟 | Pinky only -> `GL0` ( Turn Garage Light OFF ) <br>
  🤟 | Spiderman hand (Index, Pinky) -> `GD1` ( Open Garage Door ) <br>
  👍 | Thumb only -> `GD0` ( Close Garage Door ) <br> 
 
@@ -48,7 +48,7 @@ cd SMART_IoT
 ```
 
 ```bash
-py -3.10 -m venv iot-env    # create and virtual environment
+py -3.10 -m venv iot-env    # create and start virtual environment
 iot-env\Scripts\activate
 ```
 
@@ -58,7 +58,7 @@ pip install mediapipe
 pip install paho-mqtt
 ```
 
-This will download the `hand_landmarker.task` model file required for hand tracking: 
+Download the `hand_landmarker.task` model file required for hand tracking: 
 ```bash
 python download_model.py    # Download MediaPipe Model
 ```
@@ -67,14 +67,15 @@ python download_model.py    # Download MediaPipe Model
 
 ### Running the Hand Gesture Controller 
 ```bash
-python camera.py
+py ./camera.py
+py ./subscriber.py
 ```
 This will:
 1. Open your webcam
 2. Start detecting hand gestures
 3. Display the hand tracking visualization
-4. Send commands to the MQTT broker when gestures are detected
-Press `q` to quit the application.
+4. Send commands to the MQTT broker when gestures are detected <br>
+(press `q` to quit the application)
 
 ### Testing MQTT Communication
 ```bash
@@ -83,8 +84,8 @@ python publisher.py     # Terminal 2- Start Publisher
 ```
 The subscriber will receive messages published by the publisher or the gesture controller.
 
-### ESP32 Integration
-This project includes ESP32 support for controlling IoT devices. You can simulate the ESP32 using **Wokwi Simulation Link:** [https://wokwi.com/projects/451864629933455361](https://wokwi.com/projects/451864629933455361) 
+### IoT Integration
+This project includes ESP32 support for controlling IoT devices. You can simulate the it using **Wokwi Simulation Link:** [https://wokwi.com/projects/451864629933455361](https://wokwi.com/projects/451864629933455361) 
 
 Steps: 
 1. Open the Wokwi project link above (or simulate your own)
