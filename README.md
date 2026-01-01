@@ -23,7 +23,7 @@ MQTT Publish → Broker → ESP32 Subscribe → Device Control
  ☝️ | Index finger only -> `BL1` ( Turn Bedroom Light ON ) <br>
  ✊ | All fingers down -> `BL0` ( Turn Bedroom Light OFF ) <br>
  ✌️ | Index & Middle fingers -> `GL1` ( Turn Garage Light ON ) <br>
- 🤟 | Pinky only -> `GL0` ( Turn Garage Light OFF ) <br>
+ 🤙 | Pinky only -> `GL0` ( Turn Garage Light OFF ) <br>
  🤟 | Spiderman hand (Index, Pinky) -> `GD1` ( Open Garage Door ) <br>
  👍 | Thumb only -> `GD0` ( Close Garage Door ) <br> 
 
@@ -97,7 +97,7 @@ Steps:
 Default configuration uses HiveMQ public broker:
 - Broker: `broker.hivemq.com`
 - Port: `1883`
-- Topic: `home/central`
+- Topic: `home/central` <br> 
 To change the broker or topic, modify the constants in `iot_control.py`
 
 ### Issues
@@ -105,4 +105,4 @@ To change the broker or topic, modify the constants in `iot_control.py`
 - Keep hand within camera frame
 - Try adjusting `detection_con` and `track_con` value
 
-
+### Drafted with ❤️ by Huda Naaz 
